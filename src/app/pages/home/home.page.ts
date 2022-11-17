@@ -7,6 +7,10 @@ import { map, share, Subscription, timer } from 'rxjs';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+
+
+
+  // For the time
   time = new Date();
   rxTime = new Date();
   intervalId: any;
@@ -35,6 +39,10 @@ export class HomePage implements OnInit {
     if (this.subscription) {
       this.subscription.unsubscribe();
     }
-  }
+  };
+    // For the time END
+
 }
+
+
 
