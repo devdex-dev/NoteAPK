@@ -1,68 +1,68 @@
 
 <ion-content>
 
-
-
-
   <ion-slides>
+
     <ion-slide>
       <ion-toolbar  position="top"> <ion-title>Home </ion-title></ion-toolbar>
 
       <ion-card color="secondary">
         <ion-card-content>
           <ion-card-title>
+            
           <div>{{ time | date: 'hh:mm:ss a' }}</div>
         </ion-card-title>
         </ion-card-content>
       </ion-card>
     
-      <div class="slide">
+      <ion-card class="slide">
         <ion-datetime  presentation="date"></ion-datetime>
-      </div>
-  </ion-slide>
-
-
-    <ion-slide>
-      <ion-toolbar> <ion-title>To Do</ion-title></ion-toolbar>
-      
-     <ion-card color="secondary">
-            <ion-card-header>
-              <ion-card-title>Platform Techology</ion-card-title>
-              <ion-card-subtitle><b>Due Date:</b> Dec. 25 2022</ion-card-subtitle>
-            </ion-card-header>
-    
-            <ion-card-content>
-              Module 3 Lesson 5 Activity
-            </ion-card-content>
-            <ion-button size="small" color="warning" ><ion-icon name="close-outline"></ion-icon></ion-button>
-        </ion-card>
-
-        <ion-card color="secondary">
-          <ion-card-header>
-            <ion-card-title>Platform Techology</ion-card-title>
-            <ion-card-subtitle><b>Due Date:</b> Dec. 25 2022</ion-card-subtitle>
-          </ion-card-header>
-  
-          <ion-card-content>
-            Module 3 Lesson 5 Activity
-          </ion-card-content>
-          <ion-button size="small" color="warning"><ion-icon name="close-outline"></ion-icon></ion-button>
-      </ion-card>
-     
+      </ion-card >
     </ion-slide>
+          <ion-slide>
 
+               <ion-toolbar>
+                 <ion-title>Tasks</ion-title>
+               </ion-toolbar>
+
+                 <!-- GETTING INPUT And save it into 'taskName' -->
+               <ion-card >
+                  <ion-item>
+                    <ion-textarea  type="text" [(ngModel)]="taskName"  [autoGrow]="true"></ion-textarea> 
+                    <ion-button  (click)="addTask()"><ion-icon name="add"></ion-icon></ion-button>
+                  </ion-item>
+               </ion-card>
+               <!-- Displays entered lst -->
+
+               <!-- experimental -->
+               <ion-card class="task-card">
+                <ion-card-header>
+                  <ion-card-subtitle> Tasks</ion-card-subtitle>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-chip *ngFor="let todo of taskList; let i = index">
+                    <ion-label>{{todo}}</ion-label>
+                     <ion-button color="success" fill='clear' (click)="transfer(i)"><ion-icon name="checkmark-outline"></ion-icon></ion-button>
+                  </ion-chip>
+                  </ion-card-content>
+               </ion-card>
+
+               <!-- experimanetal -->
+
+               <!-- Done Tasks -->
+              <ion-card class="task-card">
+                <ion-card-header>
+                  <ion-card-subtitle>Finished Tasks</ion-card-subtitle>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-chip *ngFor="let done of done; let i = index">
+                    <ion-label>{{done}}</ion-label>
+                    <ion-button color="danger" fill='clear' (click)="deleteTask(i)"><ion-icon name="close-outline"></ion-icon></ion-button>
+                  </ion-chip>
+                  </ion-card-content>
+               </ion-card>
+                
+          </ion-slide>
   </ion-slides>
-  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-    <ion-fab-button>
-      <ion-icon name="chevron-up-circle"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-list side="top">
-      <ion-fab-button>
-        <ion-icon name="checkbox-outline"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button>
-        <ion-icon name="globe"></ion-icon>
-      </ion-fab-button>
-    </ion-fab-list>
-  </ion-fab>
+
 </ion-content>
