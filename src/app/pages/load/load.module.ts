@@ -13,7 +13,8 @@ import { LoadPage } from './load.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    LoadPageRoutingModule
+    LoadPageRoutingModule,
+    
   ],
   declarations: [LoadPage]
 })
